@@ -16,6 +16,8 @@
       android:supportsRtl="true"
       android:theme="@style/AppTheme"
       tools:ignore="AllowBackup">
+    <activity android:name=".view.LoginActivity">
+    </activity>
     <activity
         android:name=".MainActivity"
         android:theme="@style/AppTheme.NoActionBar">
