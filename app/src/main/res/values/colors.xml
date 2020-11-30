@@ -10,7 +10,8 @@
   <color name="colorSecondaryLight">#ffffff</color>
   <color name="colorSecondaryDark">#bfc3c4</color>
 
-  <color name="colorAccent">#001a6a</color>
+  <color name="colorAccent">#ffdd65</color>
+  <color name="colorAccentDark">#deb41e</color>
 
   <color name="textPrimary">#504f55</color>
   <color name="textSecondary">#ffffff</color>
