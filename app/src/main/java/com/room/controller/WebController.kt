@@ -14,6 +14,8 @@ import java.util.concurrent.Callable
 @Suppress("RECEIVER_NULLABILITY_MISMATCH_BASED_ON_JAVA_ANNOTATIONS")
 class WebController {
   class Post(private var targetUrl: String, private var token: String, private var bodyValue: FormBody.Builder) : Callable<JSONObject> {
+    constructor(targetUrl: String, bodyValue: FormBody.Builder) : this(targetUrl, "", bodyValue)
+
     override fun call(): JSONObject {
       return try {
         val client = OkHttpClient.Builder().build()
