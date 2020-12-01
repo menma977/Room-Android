@@ -39,13 +39,13 @@
         android:elevation="10dp">
 
       <EditText
-          android:id="@+id/editTextTextPersonName2"
+          android:id="@+id/editTextUsername"
           android:background="@drawable/edit_text"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:layout_weight="1"
           android:ems="10"
-          android:hint="Username"
+          android:hint="@string/username"
           android:inputType="textPersonName"/>
 
       <Space
@@ -53,7 +53,7 @@
           android:layout_height="10dp"/>
 
       <EditText
-          android:id="@+id/editTextTextPassword2"
+          android:id="@+id/editTextPassword"
           android:background="@drawable/edit_text"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
@@ -67,6 +67,7 @@
           android:layout_height="20dp"/>
 
       <Button
+          android:id="@+id/buttonLogin"
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
           android:text="Login"
