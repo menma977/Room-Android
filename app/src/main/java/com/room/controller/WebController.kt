@@ -1,5 +1,6 @@
 package com.room.controller
 
+import android.util.Log
 import com.room.model.Url
 import okhttp3.FormBody
 import okhttp3.OkHttpClient
@@ -28,6 +29,7 @@ class WebController {
         request.addHeader("X-Request-With", "XMLHttpRequest")
         val response: Response = client.newCall(request.build()).execute()
         val convertJSON = render(response)
+        Log.i("response",convertJSON.toString())
         return validation(response, convertJSON)
       } catch (e: Exception) {
         JSONObject().put("code", 500).put("data", e.message.toString())
