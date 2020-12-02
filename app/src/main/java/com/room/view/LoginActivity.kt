@@ -11,15 +11,13 @@ import com.room.config.Loading
 import com.room.controller.WebController
 import com.room.model.User
 import okhttp3.FormBody
-import okhttp3.Request
-import java.net.PasswordAuthentication
 
 class LoginActivity : AppCompatActivity() {
   private lateinit var username: EditText
   private lateinit var password: EditText
   private lateinit var login: Button
-  private lateinit var user:User
-  private lateinit var loading:Loading
+  private lateinit var user: User
+  private lateinit var loading: Loading
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -29,15 +27,15 @@ class LoginActivity : AppCompatActivity() {
     loading = Loading(this)
     username = findViewById(R.id.editTextUsername)
     password = findViewById(R.id.editTextPassword)
-    login = findViewById(R.id.buttonLogin)
-
+    login = findViewById(R.id.buttonLogin) //todo : proses login
     login.setOnClickListener {
       if (username.text.isEmpty() || password.text.isEmpty()) {
-        //Username and Password is empty
+        /**
+         * Username and Password is empty
+         */
         Toast.makeText(this, "Username or password is empty", Toast.LENGTH_LONG)
       } else {
-
-
+        onLogin()
       }
     }
 
@@ -48,7 +46,6 @@ class LoginActivity : AppCompatActivity() {
     body.addEncoded("username", "")
     body.addEncoded("password", "")
     val response = WebController.Post("login", body).call()
-
 
     Log.i("response", response.toString())
   }
