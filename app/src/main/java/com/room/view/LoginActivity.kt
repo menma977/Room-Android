@@ -34,10 +34,9 @@ class LoginActivity : AppCompatActivity() {
     login.setOnClickListener {
       if (username.text.isEmpty() || password.text.isEmpty()) {
         //Username and Password is empty
-        Toast.makeText(this, "Username or password is empty", Toast.LENGTH_LONG)
+        Toast.makeText(this, "Username or password is empty", Toast.LENGTH_LONG).show()
       } else {
-
-
+        onLogin()
       }
     }
 
@@ -45,8 +44,8 @@ class LoginActivity : AppCompatActivity() {
 
   private fun onLogin() {
     val body = FormBody.Builder()
-    body.addEncoded("username", "")
-    body.addEncoded("password", "")
+    body.addEncoded("username", "${username.text}")
+    body.addEncoded("password", "${password.text}")
     val response = WebController.Post("login", body).call()
 
 
