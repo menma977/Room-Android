@@ -30,7 +30,7 @@ class WebController {
         val convertJSON = render(response)
         return validation(response, convertJSON)
       } catch (e: Exception) {
-        JSONObject().put("code", 500).put("data", e.message)
+        JSONObject().put("code", 500).put("data", e.message.toString())
       }
     }
 
@@ -52,9 +52,7 @@ class WebController {
 
         request.addHeader("X-Request-With", "XMLHttpRequest")
         val response = client.newCall(request.build()).execute()
-        val input = BufferedReader(InputStreamReader(response.body!!.byteStream()))
-        val inputData: String = input.readLine()
-        val convertJSON = JSONObject(inputData)
+        val convertJSON = render(response)
         return validation(response, convertJSON)
       } catch (e: Exception) {
         JSONObject().put("code", 500).put("data", e.message)
