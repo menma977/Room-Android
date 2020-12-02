@@ -27,18 +27,15 @@ class LoginActivity : AppCompatActivity() {
     loading = Loading(this)
     username = findViewById(R.id.editTextUsername)
     password = findViewById(R.id.editTextPassword)
-    login = findViewById(R.id.buttonLogin) //todo : proses login
+    login = findViewById(R.id.buttonLogin)
     login.setOnClickListener {
       if (username.text.isEmpty() || password.text.isEmpty()) {
-        /**
-         * Username and Password is empty
-         */
+        /**Username and Password is empty*/
         Toast.makeText(this, "Username or password is empty", Toast.LENGTH_LONG)
       } else {
         onLogin()
       }
     }
-
   }
 
   private fun onLogin() {

@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <network-security-config>
   <domain-config cleartextTrafficPermitted="true">
-    <domain includeSubdomains="true">www.999doge.com</domain>
-    <domain includeSubdomains="true">wallet.myvintech.com</domain>
-    <domain includeSubdomains="true">myvintech.com</domain>
+    <domain includeSubdomains="true">192.168.88.243</domain>
   </domain-config>
 </network-security-config>
