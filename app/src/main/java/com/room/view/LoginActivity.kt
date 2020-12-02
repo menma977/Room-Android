@@ -31,6 +31,16 @@ class LoginActivity : AppCompatActivity() {
     password = findViewById(R.id.editTextPassword)
     login = findViewById(R.id.buttonLogin)
 
+    login.setOnClickListener {
+      if (username.text.isEmpty() || password.text.isEmpty()) {
+        //Username and Password is empty
+        Toast.makeText(this, "Username or password is empty", Toast.LENGTH_LONG)
+      } else {
+
+
+      }
+    }
+
   }
 
   private fun onLogin() {
@@ -39,22 +49,6 @@ class LoginActivity : AppCompatActivity() {
     body.addEncoded("password", "")
     val response = WebController.Post("login", body).call()
 
-    val sUserName = username.text.toString()
-    val sPassword = password.text.toString()
-
-    login.setOnClickListener{
-      if (sUserName.isEmpty() || sPassword.isEmpty()){
-        //Username and Password is empty
-        Toast.makeText(this,"Username or password is empty",Toast.LENGTH_LONG)
-      }else if (sUserName.isNotEmpty() || sPassword.isNotEmpty()){
-        //Username and Password inserted
-        //Authentication with user database
-
-      }else{
-        //Username and Password is not in the database
-        Toast.makeText(this,"Username or password is wrong",Toast.LENGTH_LONG)
-      }
-    }
 
     Log.i("response", response.toString())
   }
