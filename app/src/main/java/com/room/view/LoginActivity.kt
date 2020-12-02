@@ -11,6 +11,8 @@ import com.room.config.Loading
 import com.room.controller.WebController
 import com.room.model.User
 import okhttp3.FormBody
+import java.util.*
+import kotlin.concurrent.schedule
 
 class LoginActivity : AppCompatActivity() {
   private lateinit var username: EditText
@@ -27,10 +29,11 @@ class LoginActivity : AppCompatActivity() {
     loading = Loading(this)
     username = findViewById(R.id.editTextUsername)
     password = findViewById(R.id.editTextPassword)
+    username.setText("admin")
+    password.setText("admin")
     login = findViewById(R.id.buttonLogin)
     login.setOnClickListener {
-      if (username.text.isEmpty() || password.text.isEmpty()) {
-        //Username and Password is empty
+      if (username.text.isEmpty() || password.text.isEmpty()) { //Username and Password is empty
         Toast.makeText(this, "Username or password is empty", Toast.LENGTH_LONG).show()
       } else {
         onLogin()
@@ -42,8 +45,10 @@ class LoginActivity : AppCompatActivity() {
     val body = FormBody.Builder()
     body.addEncoded("username", "${username.text}")
     body.addEncoded("password", "${password.text}")
-    val response = WebController.Post("login", body).call()
+    Timer().schedule(100) {
+      val response = WebController.Post("login", body).call()
+      Log.i("response", response.toString())
+    }
 
-    Log.i("response", response.toString())
   }
 }
