@@ -1,9 +1,7 @@
 package com.room.model
 
 object Url {
-
-    fun web(): String {
-        return "Http://192.168.88.243:80/"
-    }
-
+  fun web(): String {
+    return "http://192.168.67.205/api/"
+  }
 }
